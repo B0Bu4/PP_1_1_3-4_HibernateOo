@@ -60,6 +60,7 @@ public class Util {
                 prop.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
                 prop.setProperty("show_sql", "true");
 
+
                 sessionFactory = new Configuration().addAnnotatedClass(User.class).addProperties(prop).buildSessionFactory();
 
             } catch (Exception e) {
