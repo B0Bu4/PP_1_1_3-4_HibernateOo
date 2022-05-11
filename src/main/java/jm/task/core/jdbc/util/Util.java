@@ -1,6 +1,5 @@
 package jm.task.core.jdbc.util;
 
-
 import jm.task.core.jdbc.model.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,7 +11,7 @@ import java.util.Properties;
 
 
 public class Util {
-
+    // --------------------Util for JDBC--------------------------
     private static Connection connection;
     private static final String URL = "jdbc:mysql://localhost:3306/ppkata";
     private static final String USERNAME = "root";
@@ -28,16 +27,29 @@ public class Util {
         return connection;
     }
 
-    // ----------------------------------------------
+    // --------------------Util for Hibernate--------------------------
+
 
     private static SessionFactory sessionFactory;
+    private static Util instance;
+
+    private Util() {
+
+    }
+
+    public static Util getInstance() {
+        if (instance == null) {
+            instance = new Util();
+        }
+        return instance;
+    }
 
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
 
-                Properties prop= new Properties();
+                Properties prop = new Properties();
 
                 prop.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/ppkata");
 
