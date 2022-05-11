@@ -22,7 +22,7 @@ public class Main {
         userDao.saveUser("Marina", "Ivanova", (byte) 28);
 
         userDao.getAllUsers();
-         userDao.removeUserById(1);
+        userDao.removeUserById(1);
         userDao.getAllUsers();
         userDao.cleanUsersTable();
         userDao.getAllUsers();
