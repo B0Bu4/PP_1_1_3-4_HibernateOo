@@ -9,7 +9,7 @@ import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
 
-    Util utilJDBC;
+    private Util utilJDBC;
 
     public UserDaoJDBCImpl() {
         Util utilJDBC = Util.getInstance();
