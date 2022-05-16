@@ -6,7 +6,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
@@ -60,8 +59,10 @@ public class UserDaoHibernateImpl implements UserDao {
             session.getTransaction().commit();
 
         } catch (HibernateException e) {
+
             session.getTransaction().rollback();
             e.printStackTrace();
+
         } finally {
             try {
                 if (session.isOpen()) {
@@ -86,8 +87,10 @@ public class UserDaoHibernateImpl implements UserDao {
             session.getTransaction().commit();
 
         } catch (HibernateException e) {
+
             session.getTransaction().rollback();
             e.printStackTrace();
+
         } finally {
             try {
                 if (session.isOpen()) {
@@ -113,8 +116,10 @@ public class UserDaoHibernateImpl implements UserDao {
             session.getTransaction();
 
         } catch (HibernateException e) {
+
             session.getTransaction().rollback();
             e.printStackTrace();
+
         } finally {
             try {
                 if (session.isOpen()) {
@@ -139,13 +144,18 @@ public class UserDaoHibernateImpl implements UserDao {
             users = session.createQuery("From User").list();
 
         } catch (HibernateException e) {
+
             session.getTransaction().rollback();
             e.printStackTrace();
+
         } finally {
             try {
+
                 if (session.isOpen()) {
                     session.close();
+
                 }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
